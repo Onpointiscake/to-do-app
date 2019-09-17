@@ -1,7 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <section class="hero is-warning is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              My First Ever To-Do App on Vue
+            </h1>
+            <h2 class="subtitle">
+              Let´s have fun!
+            </h2>
+          </div>
+        </div>
+      </section>
   </div>
 </template>
 
@@ -23,6 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
