@@ -1,27 +1,31 @@
 <template>
   <div id="app">
       <section class="hero is-warning is-fullheight">
+        <!-- Container del Centro .start-->
         <div class="hero-body">
           <div class="container">
-            <h1 class="title">
-              My First Ever To-Do App on Vue
-            </h1>
-            <h2 class="subtitle">
-              Let´s have fun!
-            </h2>
+
+            <PreTodo />
+            <input type="text" />
+
           </div>
         </div>
+        <!-- Container del Centro .end -->
+         <div class="hero-foot">
+            <p>Javier Suarez M.A.D.E. this</p>
+          </div>
+          
       </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PreTodo from './components/PreTodo'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+      PreTodo
   }
 }
 </script>
