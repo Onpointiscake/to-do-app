@@ -4,10 +4,8 @@
         <!-- Container del Centro .start-->
         <div class="hero-body">
           <div class="container">
-
             <PreTodo />
-            <input type="text" />
-
+            <Todo />
           </div>
         </div>
         <!-- Container del Centro .end -->
@@ -21,11 +19,12 @@
 
 <script>
 import PreTodo from './components/PreTodo'
-
+import Todo from "./components/Todo"
 export default {
   name: 'app',
   components: {
-      PreTodo
+      PreTodo,
+      Todo
   }
 }
 </script>
@@ -37,5 +36,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+input{
+  border: none;
+  border-radius: 5px;
 }
 </style>
