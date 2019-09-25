@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-     <b-form-input v-model="text" placeholder="pon un nombre a tu lista... "></b-form-input>
-      <div class="mt-2"><h1>{{ text }}</h1></div>
+      <div class="mt-2 first-wrapper">
+        <b-form-input v-model="text" placeholder="pon un nombre a tu lista... "></b-form-input>
+        <b-button  class="btn-create">Crear</b-button>
+      </div>
+      <div class="mt-2">
+        <h1>{{ text }}</h1>
+      </div>
       <TodoList />
   </div>
 </template>
@@ -34,6 +39,13 @@ $color-contraste: #E0BAD7;
 body{
   background: $color-fondo-verde !important;
 }
+.first-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+.first-wrapper button{
+  margin-left: 2%;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,10 +57,14 @@ body{
 h1{
   text-align: center;
   font-family: $tipografia-titulo-todo;
+  margin-right: 2%;
+}
+.btn-create{
+  background: #2A4747 !important;
 }
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
-    border-color: #2A4747;
-    box-shadow: 0 1px 1px #2A4747 inset, 0 0 8px #2A4747;
+    border-color: #439775;
+    box-shadow: 0 1px 1px #439775 inset, 0 0 8px #439775;
     outline: 0 none;
     text-align: center;
 }

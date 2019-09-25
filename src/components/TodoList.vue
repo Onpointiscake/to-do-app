@@ -7,7 +7,7 @@ import TodoItem from "./TodoItem"
 export default {
     name: 'TodoList',
     components: {
-        TodoItem
+        
     }
 }
 </script>
