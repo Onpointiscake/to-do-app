@@ -1,56 +1,55 @@
 <template>
   <div id="app">
-
-      <!-- Hero component de Buefy .start -->
-      <section class="hero is-warning is-fullheight">
-
-           <div class=" title">
-            <h2>Da un Nombre a tu To-Do</h2>
-          </div>
-          <!-- Container del Centro .start-->
-        <div class="hero-body">
-          <div class="container">
-            <TodoItem>input</TodoItem>
-          </div>
-        </div>
-        <!-- Container del Centro .end -->
-
-          <!--Footer .start-->
-         <div class="hero-foot">
-            <TodoListFooter></TodoListFooter>
-          </div>
-        <!-- Footer .end -->
-
-      </section>
-      <!-- Hero component de Buefy .end -->
-
+     <b-form-input v-model="text" placeholder="pon un nombre a tu lista... "></b-form-input>
+      <div class="mt-2"><h1>{{ text }}</h1></div>
+      <TodoList />
   </div>
 </template>
 
 <script>
-import TodoListFooter from "./components/TodoListFooter/TodoListFooter"
+import TodoList from "./components/TodoList"
+import TodoItem from "./components/TodoItem"
 export default {
   name: 'app',
   components: {
-     TodoListFooter
+    TodoList, TodoItem
+  },
+  data () {
+    return {
+      text: ""
+    }
   }
 }
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+
+$tipografia-titulo-todo: 'Mansalva', cursive;
+$color-letra-negro: #2A4747;
+$color-fondo-verde: #48BF84;
+$color-verde-secundario: #439775;
+$color-contraste: #E0BAD7;
+
+body{
+  background: $color-fondo-verde !important;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  max-width: 400px;
+  padding-top: 5vh;
+  color: $color-letra-negro;
+}
+h1{
   text-align: center;
-  color: #2c3e50;
+  font-family: $tipografia-titulo-todo;
 }
-.delete-btn{
-  margin-right: 75%;
-  margin-left: 5%;
-}
-input{
-  border: none;
-  border-radius: 5px;
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: #2A4747;
+    box-shadow: 0 1px 1px #2A4747 inset, 0 0 8px #2A4747;
+    outline: 0 none;
+    text-align: center;
 }
 </style>
