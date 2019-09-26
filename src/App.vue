@@ -1,13 +1,16 @@
 <template>
   <div id="app">
       <div class="mt-2 first-wrapper">
-        <b-form-input v-model="text" placeholder="pon un nombre a tu lista... "></b-form-input>
-        <b-button  class="btn-create">Crear</b-button>
+        <b-form-input size="lg" v-if="listaEstaCreada === false" v-model="titulo_todo" placeholder="pon un nombre a tu lista... "></b-form-input>
+        <b-button size="lg" v-if="listaEstaCreada === false" v-on:click="newList" class="btn-create">Crear</b-button>
       </div>
-      <div class="mt-2">
-        <h1>{{ text }}</h1>
+      <div class="mt-2 wrapper-title">
+         <h1>{{titulo_todo}}</h1>
       </div>
-      <TodoList />
+       <TodoList v-if="listaEstaCreada" />
+      <footer>
+         <b-button size="lg" v-if="listaEstaCreada" v-on:click="resetList" variant="danger" id="btn-delete" >Borrar</b-button>
+      </footer> 
   </div>
 </template>
 
@@ -21,7 +24,17 @@ export default {
   },
   data () {
     return {
-      text: ""
+      titulo_todo: "",
+      listaEstaCreada: false
+    }
+  },
+  methods: {
+    newList: function (){
+      this.listaEstaCreada = true;
+    },
+    resetList: function(){
+      this.listaEstaCreada = false;
+      this.titulo_todo = "";
     }
   }
 }
@@ -50,8 +63,9 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
-  max-width: 400px;
-  padding-top: 5vh;
+  max-width: 600px;
+  padding: 5vh 3vh;
+  text-align: center;
   color: $color-letra-negro;
 }
 h1{
@@ -61,11 +75,19 @@ h1{
 }
 .btn-create{
   background: #2A4747 !important;
+  padding: 0px 20px !important;
 }
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
     border-color: #439775;
     box-shadow: 0 1px 1px #439775 inset, 0 0 8px #439775;
     outline: 0 none;
     text-align: center;
+}
+.wrapper-title{
+  margin-bottom: 3vh;
+}
+#btn-delete{
+  text-align: center;
+  margin: 5vh 0vh;
 }
 </style>
