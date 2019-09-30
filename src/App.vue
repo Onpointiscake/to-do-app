@@ -8,6 +8,16 @@
          <h1>{{titulo_todo}}</h1>
       </div>
        <TodoList v-if="listaEstaCreada" />
+       <div class="intro-wrapper" v-if="!listaEstaCreada">
+          <div class="intro-subwrapper-2">
+            <h1>Bievenido a tu lista de tareas</h1>
+            <h4>Para añadir tareas, comienza escribiendo un título y clickando en 'Crear' arriba</h4>
+          </div>
+          <div class="intro-subwrapper-2">
+            <p class="made-p">Made with Love by Javier Suarez</p>
+            <b-button variant="primary" href="#">Visita mi Github</b-button>
+          </div> 
+       </div>
       <footer>
          <b-button size="lg" v-if="listaEstaCreada" v-on:click="resetList" variant="danger" id="btn-delete" >Borrar</b-button>
       </footer> 
@@ -58,6 +68,18 @@ body{
 }
 .first-wrapper button{
   margin-left: 2%;
+}
+.intro-wrapper{
+  background: #E0BAD7;
+  padding: 5vh 2vh;
+  border-radius: 6px;
+}
+.intro-subwrapper-2 p,h4{
+  padding-top: 14vh;
+}
+.made-p{
+  font-style: italic;
+  padding-top: 5%;
 }
 #app {
   -webkit-font-smoothing: antialiased;

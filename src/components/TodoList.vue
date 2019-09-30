@@ -6,12 +6,12 @@
     </div>
       <!-- TodoItem: -->
       <div class="item-wrapper">
-       <b-form-checkbox size="lg" id="checkbox-1" v-model="discount" name="checkbox-1" value="underlineItem" unchecked-value="">
-          <h6 id="item_1">{{titulo_item}}</h6>
-        </b-form-checkbox>
+       <div>
+          <h6 id="item_1">¿Añadir ...{{titulo_item}}?</h6>
+        </div>
       </div>
       <!-- OMITIR ---Data getting filled inside item array: -->
-      <ul>
+      <ul class="item-list-ul">
         <li v-for="i in items" :key="i.id">{{ i }}</li>
       </ul>
 
@@ -29,7 +29,7 @@ export default {
     return {
       titulo_item: "",
       items: [
-        "item1","item2","item3"
+        
       ],
       itemEstaCreado: false
       }
@@ -70,5 +70,11 @@ $color-verde-secundario: #439775;
 .first-wrapper button{
   margin-left: 2%;
 }
+}
+.item-list-ul li{
+  font-size: 1.5rem !important;
+}
+#item_1{
+  font-size: 1.4rem !important;
 }
 </style>
