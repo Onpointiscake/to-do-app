@@ -10,8 +10,8 @@
        <TodoList v-if="listaEstaCreada" />
        <div class="intro-wrapper" v-if="!listaEstaCreada">
           <div class="intro-subwrapper-2">
-            <h1>Bievenido a tu lista de tareas</h1>
-            <h4>Para añadir tareas, comienza escribiendo un título y clickando en 'Crear' arriba</h4>
+            <h2>Bievenido a tu lista de tareas</h2>
+            <b-img thumbnail fluid :src="require('./assets/arm-break-coffee-257897.jpg')" alt="Image 2"></b-img>
           </div>
           <div class="intro-subwrapper-2">
             <p class="made-p">Made with Love by Javier Suarez</p>
@@ -73,9 +73,6 @@ body{
   background: #E0BAD7;
   padding: 5vh 2vh;
   border-radius: 6px;
-}
-.intro-subwrapper-2 p,h4{
-  padding-top: 14vh;
 }
 .made-p{
   font-style: italic;
