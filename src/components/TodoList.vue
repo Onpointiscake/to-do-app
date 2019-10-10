@@ -12,7 +12,7 @@
       <!-- OMITIR ---Data getting filled inside item array: -->
       <ul class="item-list-ul">
         <li v-for="i in items" :key="i.id">{{ i }}
-           <b-button variant="outline-dark">Hecho!</b-button>
+           <b-button @click="deleteItem(i)" variant="outline-dark">Hecho!</b-button>
         </li>
       </ul>
 
@@ -29,7 +29,7 @@ export default {
     return {
       titulo_item: "",
       items: [
-        "tachar tasks", "borrar tasks", "alinear bien la checkbox/titulo/boton"
+       
       ],
       itemEstaCreado: false
       }
@@ -39,13 +39,20 @@ export default {
         this.itemEstaCreado = true;
         this.items.push(this.titulo_item)
         this.titulo_item = "";
-      }
-      /*
+      },
       deleteItem: function (i){
-      let itemstoHandle = this.items[i]
-      let stringtoDelete = itemstoHandle
-      itemstoHandle.filter(v => v !== stringtoDelete)} 
-      */
+        let itemstoHandle = this.items;
+        for (var j=itemstoHandle.length-1; j>=0; j--) {
+          if (itemstoHandle[j] === i) {
+              itemstoHandle.splice(j, 1);
+          }
+        }
+      },
+      crossItem: function(i){
+        let itemstoHandle = this.items[i]
+        let stringtoCross = itemstoHandle
+        itemstoHandle.filter(v => v!== stringtoCross)
+      }
     }
   }
 </script>
@@ -77,14 +84,14 @@ $color-verde-secundario: #439775;
   margin-left: 2%;
 }
 }
-.item-list-ul li{
-  font-size: 1.5rem !important;
-}
 #item_1{
   font-size: 1.4rem !important;
 }
 .item-list-ul li{
   font-size: 1.1em !important;
   font-weight: 600;
+}
+.crossed{
+  text-decoration: line-through;
 }
 </style>
