@@ -1,8 +1,8 @@
 <template>
   <div id="app">
       <div class="mt-2 first-wrapper">
-        <b-form-input size="lg" v-if="listaEstaCreada === false" v-model="titulo_todo" placeholder="pon un nombre a tu lista... "></b-form-input>
-        <b-button size="lg" v-if="listaEstaCreada === false" v-on:click="newList" class="btn-create">Crear</b-button>
+        <b-form-input class="nombre-lista" size="lg" v-if="listaEstaCreada === false" v-model="titulo_todo" placeholder="pon un nombre a tu lista... "></b-form-input>
+        <b-button size="lg" v-if="listaEstaCreada === false" v-on:click="newList" class="btn-create">CREAR</b-button>
       </div>
       <div class="mt-2 wrapper-title">
          <h1>{{titulo_todo}}</h1>
@@ -10,7 +10,7 @@
        <TodoList v-if="listaEstaCreada" />
        <div class="intro-wrapper" v-if="!listaEstaCreada">
           <div class="intro-subwrapper-2">
-            <h2>Bievenido a tu lista de tareas</h2>
+            <h2>Bievenido a tu Lista de Tareas</h2>
             <b-img thumbnail fluid :src="require('./assets/arm-break-coffee-257897.jpg')" alt="Image 2"></b-img>
           </div>
           <div class="intro-subwrapper-2">
@@ -26,11 +26,10 @@
 
 <script>
 import TodoList from "./components/TodoList"
-import TodoItem from "./components/TodoItem"
 export default {
   name: 'app',
   components: {
-    TodoList, TodoItem
+    TodoList
   },
   data () {
     return {
@@ -69,10 +68,36 @@ body{
 .first-wrapper button{
   margin-left: 2%;
 }
-.intro-wrapper{
+  .intro-wrapper{
   background: #E0BAD7;
-  padding: 5vh 2vh;
+  padding: 4vh 4vh;
   border-radius: 6px;
+  max-width: 510px;
+}
+.nombre-lista{
+  max-width: 400px;
+}
+@media (max-width: 600px){
+  .intro-subwrapper-2 h2{
+    margin-bottom: 6vh !important;
+}
+  .intro-subwrapper-2{
+    padding: 3vh 0vh;
+  }
+}
+@media (min-height: 700px){
+  .intro-subwrapper-2 h2{
+    margin-bottom: 7vh !important;
+}
+  .intro-subwrapper-2{
+    padding: 3vh 0vh;
+  }
+  .made-p{
+    margin-top: 6vh;
+  }
+}
+.intro-subwrapper-2 h2{
+  margin-bottom: 20px;
 }
 .made-p{
   font-style: italic;
@@ -83,7 +108,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
   max-width: 600px;
-  padding: 5vh 3vh;
+  padding: 3vh 3vh;
   text-align: center;
   color: $color-letra-negro;
 }

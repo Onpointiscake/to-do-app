@@ -4,7 +4,6 @@
     <b-form-input size="lg" v-model="titulo_item" placeholder="añade alguna cosa... "></b-form-input>
     <b-button @click="newItem" pill variant="primary">Añadir</b-button>
     </div>
-      <!-- TodoItem: -->
       <div class="item-wrapper">
        <div>
           <h6 id="item_1">¿Añadir ...{{titulo_item}}?</h6>
@@ -12,34 +11,41 @@
       </div>
       <!-- OMITIR ---Data getting filled inside item array: -->
       <ul class="item-list-ul">
-        <li v-for="i in items" :key="i.id">{{ i }}</li>
+        <li v-for="i in items" :key="i.id">{{ i }}
+           <b-button variant="outline-dark">Hecho!</b-button>
+        </li>
       </ul>
 
   </div>
 </template>
 
 <script>
-import TodoItem from "./TodoItem"
 export default {
     name: 'TodoList',
     components: {
-        TodoItem
+        
     },
     data () {
     return {
       titulo_item: "",
       items: [
-        
+        "tachar tasks", "borrar tasks", "alinear bien la checkbox/titulo/boton"
       ],
       itemEstaCreado: false
       }
     },
     methods: {
       newItem: function (){
-      this.itemEstaCreado = true;
-      this.items.push(this.titulo_item)
-      this.titulo_item = "";
+        this.itemEstaCreado = true;
+        this.items.push(this.titulo_item)
+        this.titulo_item = "";
       }
+      /*
+      deleteItem: function (i){
+      let itemstoHandle = this.items[i]
+      let stringtoDelete = itemstoHandle
+      itemstoHandle.filter(v => v !== stringtoDelete)} 
+      */
     }
   }
 </script>
@@ -76,5 +82,9 @@ $color-verde-secundario: #439775;
 }
 #item_1{
   font-size: 1.4rem !important;
+}
+.item-list-ul li{
+  font-size: 1.1em !important;
+  font-weight: 600;
 }
 </style>
