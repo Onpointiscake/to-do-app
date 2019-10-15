@@ -15,11 +15,11 @@
           </div>
           <div class="intro-subwrapper-2">
             <p class="made-p">Made with Love by Javier Suarez</p>
-            <b-button variant="primary" href="#">Visita mi Github</b-button>
+            <b-button variant="primary" href="https://github.com/Onpointiscake">Visita mi Github</b-button>
           </div> 
        </div>
       <footer>
-         <b-button size="lg" v-if="listaEstaCreada" v-on:click="resetList" variant="danger" id="btn-delete" >Borrar</b-button>
+         <b-button size="lg" v-if="listaEstaCreada" v-on:click="resetList" variant="danger" id="btn-delete" >Borrar Lista</b-button>
       </footer> 
   </div>
 </template>
