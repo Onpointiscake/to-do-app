@@ -1,6 +1,6 @@
 # Una simple App para Listas de Tareas en Vue.js
 
-### Deployed thanks to Netlify :Love
+### Deployed effortlessly thanks Netlify :Love
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### Check out this amazing resource which helped me tremendously when building this app: https://www.vuemastery.com/
+ 
