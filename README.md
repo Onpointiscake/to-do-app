@@ -1,29 +1,6 @@
-# todo-app-norouter
+# Una simple App para Listas de Tareas en Vue.js
 
-## Project setup
-```
-yarn install
-```
+### Deployed effortlessly thanks to Netlify :Love
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### Check out this amazing resource which helped me tremendously when building this app: https://www.vuemastery.com/
+ 
