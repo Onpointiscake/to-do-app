@@ -1,8 +1,8 @@
 <template>
   <div id="app">
       <div class="mt-2 first-wrapper">
-        <b-form-input class="nombre-lista" size="lg" v-if="listaEstaCreada === false" v-model="titulo_todo" placeholder="pon un nombre a tu lista... "></b-form-input>
-        <b-button size="lg" v-if="listaEstaCreada === false" v-on:click="newList" class="btn-create">CREAR</b-button>
+        <b-form-input class="nombre-lista" size="lg" v-if="listaEstaCreada === false" v-model="titulo_todo" placeholder="escribe un buen título aquí... "></b-form-input>
+        <b-button size="md" v-if="listaEstaCreada === false" v-on:click="newList" class="btn-create" variant="primary">CREAR</b-button>
       </div>
       <div class="mt-2 wrapper-title">
          <h1>{{titulo_todo}}</h1>
@@ -14,8 +14,9 @@
             <b-img thumbnail fluid :src="require('./assets/arm-break-coffee-257897.jpg')" alt="Image 2"></b-img>
           </div>
           <div class="intro-subwrapper-2">
-            <p class="made-p">Made with Love by Javier Suarez</p>
-            <b-button variant="primary" href="https://github.com/Onpointiscake">Visita mi Github</b-button>
+            <p class="made-p">Made with Love by</p>
+            <p> Javier Suarez Fernandez</p>
+            <b-button variant="light" href="https://github.com/Onpointiscake" class="git-btn">Visita mi Github</b-button>
           </div> 
        </div>
       <footer>
@@ -68,6 +69,9 @@ body{
 .first-wrapper button{
   margin-left: 2%;
 }
+.first-wrapper input{
+  font-size: 0.9rem;
+}
   .intro-wrapper{
   background: #E0BAD7;
   padding: 4vh 4vh;
@@ -93,7 +97,7 @@ body{
     padding: 3vh 0vh;
   }
   .made-p{
-    margin-top: 6vh;
+    margin-top: 3vh;
   }
 }
 .intro-subwrapper-2 h2{
@@ -101,6 +105,7 @@ body{
 }
 .made-p{
   font-style: italic;
+  font-size: 1.1rem;
   padding-top: 5%;
 }
 #app {
@@ -118,7 +123,6 @@ h1{
   margin-right: 2%;
 }
 .btn-create{
-  background: #2A4747 !important;
   padding: 0px 20px !important;
 }
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
@@ -133,5 +137,8 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 #btn-delete{
   text-align: center;
   margin: 5vh 0vh;
+}
+.git-btn{
+  font-weight: 600 !important;
 }
 </style>
