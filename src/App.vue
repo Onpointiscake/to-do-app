@@ -69,9 +69,6 @@ body{
 .first-wrapper button{
   margin-left: 2%;
 }
-.first-wrapper input{
-  font-size: 0.9rem;
-}
   .intro-wrapper{
   background: #E0BAD7;
   padding: 4vh 4vh;
@@ -88,6 +85,9 @@ body{
   .intro-subwrapper-2{
     padding: 3vh 0vh;
   }
+  .first-wrapper input{
+  font-size: 0.9rem;
+}
 }
 @media (min-height: 700px){
   .intro-subwrapper-2 h2{

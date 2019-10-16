@@ -17,7 +17,7 @@
           :key="index">{{ i }}
           <div class="item-butons">
             <b-button :id="`idDone${index}`" class="done-btn" @click="changeStyle(index)" size="sm" style="font-size: 1.1rem;" variant="outline-dark">Hecho!</b-button>
-            <b-button :id="`idDelete${index}`" class="delete-btn" @click="deleteItem(i)" size="sm" style="font-size: 0.9rem;"  variant="warning">Borrar</b-button>
+            <b-button :id="`idDelete${index}`" class="delete-btn" @click="deleteItem(i)" size="sm" style="font-size: 0.9rem;"  variant="warning">Eliminar</b-button>
           </div>
         </li>
       </ul>
@@ -42,18 +42,28 @@ export default {
         this.titulo_item = "";
       },
       changeStyle: function(idNumber){
+        
         const liToDecorate = document.getElementById(`id${idNumber}`)
         const doneBtnToDecorate = document.getElementById(`idDone${idNumber}`)
         const deleteBtnToDecorate = document.getElementById(`idDelete${idNumber}`)
-        console.log(doneBtnToDecorate)
-        console.log(deleteBtnToDecorate)
-        liToDecorate.style.textDecoration = 'line-through'
 
-        doneBtnToDecorate.style.fontSize = '0.9rem'
-        doneBtnToDecorate.style.background = 'black'
-        doneBtnToDecorate.style.color = 'white'
+        // Toggle function:
+        if (doneBtnToDecorate.style.background !== 'black'){
 
-        deleteBtnToDecorate.style.fontSize = '1.1rem'
+          doneBtnToDecorate.style.background = 'black'
+          doneBtnToDecorate.style.color = 'white'
+          liToDecorate.style.textDecoration = 'line-through'
+          doneBtnToDecorate.style.fontSize = '0.9rem'
+          deleteBtnToDecorate.style.fontSize = '1.1rem'
+
+        } else {
+          doneBtnToDecorate.style.background = 'inherit'
+          doneBtnToDecorate.style.color = 'inherit'
+          liToDecorate.style.textDecoration = 'none'
+          doneBtnToDecorate.style.fontSize = '1.1rem'
+          deleteBtnToDecorate.style.fontSize = '0.9rem'
+        }
+        
       },
       deleteItem: function (i){
         let itemstoHandle = this.items;
