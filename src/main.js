@@ -13,6 +13,7 @@ Vue.use(BootstrapVue)
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import './registerServiceWorker'
 library.add(faBan)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
