@@ -1,6 +1,18 @@
 // Defaults:
 import Vue from 'vue'
+import {firestorePlugin} from 'vuefire'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 import App from './App.vue'
+
+Vue.use(firestorePlugin)
+firebase.initializeApp({
+  projectId: 'todo-app-vue-69e09',
+  databaseURL: 'https://todo-app-vue-69e09.firebaseio.com'
+})
+export const db = firebase.firestore()
+
+import './registerServiceWorker'
 Vue.config.productionTip = false
 
 // Get and run bootstrap into the project:
@@ -13,7 +25,6 @@ Vue.use(BootstrapVue)
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import './registerServiceWorker'
 library.add(faBan)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

@@ -26,19 +26,31 @@
 </template>
 
 <script>
+import {db} from '../main'
+
 export default {
     name: 'TodoList',
     data () {
       return {
           titulo_item: "",
-          items: ["Usar esta lista de tareas sencilla", "Visitar el github de su autor"],
+          items: [],
           itemEstaCreado: false
         }
     },
+    firestore () {
+      return {
+        items: db.collection('items')
+      }
+    }, 
     methods: {
       newItem: function (){
+        //locally:
         this.itemEstaCreado = true;
         this.items.push(this.titulo_item)
+        //cloud database:
+        db.collection('items').add({name:this.titulo_item});
+
+        // reset item:
         this.titulo_item = "";
       },
       changeStyle: function(idNumber){
@@ -75,6 +87,7 @@ export default {
       }
     }
   }
+
 </script>
 
 <style lang="scss">
