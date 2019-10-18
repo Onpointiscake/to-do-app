@@ -39,7 +39,13 @@ export default {
     },
     firestore () {
       return {
-        items: db.collection('items')
+        itemsRef: db.collection('items'),
+        items: () => {
+          for(var i=0; i<itemsRef.length; i++){
+              this.items.push(itemsRef[i].name)
+            }
+        }
+        //items: itemsFire.name
       }
     }, 
     methods: {
