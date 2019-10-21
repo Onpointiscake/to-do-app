@@ -13,8 +13,8 @@
       <ul class="item-list-ul">
         <li 
           v-for="(i, index) in items" 
-          :id="`id${index}`" 
-          :key="index">{{ i }}
+          :id="`id${index}`"
+          :key="index">{{ i.name }}
           <div class="item-butons">
             <b-button :id="`idDone${index}`" class="done-btn" @click="changeStyle(index)" size="sm" style="font-size: 1.1rem;" variant="outline-dark">Hecho!</b-button>
             <b-button :id="`idDelete${index}`" class="delete-btn" @click="deleteItem(i)" size="sm" style="font-size: 0.9rem;"  variant="warning">Eliminar</b-button>
@@ -39,24 +39,19 @@ export default {
     },
     firestore () {
       return {
-        itemsRef: db.collection('items'),
-        items: () => {
-          for(var i=0; i<itemsRef.length; i++){
-              this.items.push(itemsRef[i].name)
-            }
-        }
-        //items: itemsFire.name
+        items: db.collection('items')
       }
     }, 
     methods: {
       newItem: function (){
-        //locally:
+        /* Add item locally:
         this.itemEstaCreado = true;
         this.items.push(this.titulo_item)
-        //cloud database:
+        */
+        // Add item in online cloud database:
         db.collection('items').add({name:this.titulo_item});
 
-        // reset item:
+        // reset input:
         this.titulo_item = "";
       },
       changeStyle: function(idNumber){
@@ -84,16 +79,19 @@ export default {
         
       },
       deleteItem: function (i){
+        /* Delete item locally:
         let itemstoHandle = this.items;
         for (var j=itemstoHandle.length-1; j>=0; j--) {
           if (itemstoHandle[j] === i) {
               itemstoHandle.splice(j, 1);
           }
         }
+        */
+        // Delete item in cloud database
+        db.collection('items').doc(i.id).delete();
       }
     }
   }
-
 </script>
 
 <style lang="scss">

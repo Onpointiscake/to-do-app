@@ -11,6 +11,8 @@ firebase.initializeApp({
   databaseURL: 'https://todo-app-vue-69e09.firebaseio.com'
 })
 export const db = firebase.firestore()
+export const rawData = db.collection('items');
+console.log(rawData)
 
 import './registerServiceWorker'
 Vue.config.productionTip = false
