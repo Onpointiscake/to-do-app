@@ -7,9 +7,8 @@
 - Mark them as done (or un-marked them)
 - Delete them 
 
-### Coming soon: Firebase database persistence with offline support!
+## And also.... Install It as an App in your Android Phone
 
-### Deployed effortlessly thanks to Netlify :Love
-
+### Deployed effortlessly thanks to Netlify
 #### Check out this amazing resource which helped me tremendously when building this app: https://www.vuemastery.com/
  
